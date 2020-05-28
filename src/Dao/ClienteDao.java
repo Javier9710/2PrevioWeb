@@ -5,28 +5,29 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import Conexion.Conexion;
-import Dto.Estudiante;
+import Dto.Cliente;
 
-public class EstudianteDao {
+
+public class ClienteDao {
 	
 	EntityManager em=null;
 
-	public EstudianteDao() {
+	public ClienteDao() {
 		em = Conexion.getEm();
 		// TODO Auto-generated constructor stub
 	}
 	
 	
-	public List<Estudiante> listar(){
-		return (List<Estudiante>) em.createQuery("select x from Estudiante x").getResultList();	
+	public List<Cliente> listar(){
+		return (List<Cliente>) em.createQuery("select x from Estudiante x").getResultList();	
 		
 	}
 	
 	
-	public void registrar (Estudiante estudiante) {
+	public void registrar (Cliente cliente) {
 		 try {
 			 em.getTransaction().begin();
-			 em.persist(estudiante);
+			 em.persist(cliente);
 			 em.getTransaction().commit();
 			 } catch (Exception e) {
 			 e.printStackTrace();
@@ -39,10 +40,10 @@ public class EstudianteDao {
 	 }
 	
 	
-	 public void actualizar (Estudiante estudiante) {
+	 public void actualizar (Cliente cliente) {
 		 try {
 			 em.getTransaction().begin();
-			 em.merge(estudiante);
+			 em.merge(cliente);
 			 em.getTransaction().commit();
 			 } catch (Exception e) {
 			 e.printStackTrace();
@@ -57,7 +58,7 @@ public class EstudianteDao {
 	 public void eliminar (int id){
 		 try {
 
-			 Estudiante u = em.find(Estudiante.class, id);
+			 Cliente u = em.find(Cliente.class, id);
 			 em.getTransaction().begin();
 			 em.remove(u);
 			 em.getTransaction().commit();
@@ -70,11 +71,11 @@ public class EstudianteDao {
 		 
 	 }
 	 
-	 public Estudiante buscar (Integer m) {
-		 Estudiante x = null;
+	 public Cliente buscar (Integer m) {
+		 Cliente x = null;
 		 try {
 			 em.getTransaction().begin();
-			 Estudiante u = em.find(Estudiante.class, m);
+			 Cliente u = em.find(Cliente.class, m);
 			 em.getTransaction().commit();
 			 //System.out.println(u.getUsuario());
 			 x=u;

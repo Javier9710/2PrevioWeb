@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,6 +18,7 @@ public class Cliente implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 6269091809968260214L;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name = "id")
 	private int id;
@@ -58,6 +61,9 @@ public class Cliente implements Serializable {
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
+
+	
+	
 	
 	
 
