@@ -20,7 +20,7 @@ public class TiendaDao {
 	
 	
 	public List<Tienda> listar(){
-		return (List<Tienda>) em.createQuery("select x from Estudiante x").getResultList();	
+		return (List<Tienda>) em.createQuery("select x from Tienda x").getResultList();	
 		
 	}
 	

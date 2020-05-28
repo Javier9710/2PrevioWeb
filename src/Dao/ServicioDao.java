@@ -19,7 +19,7 @@ public class ServicioDao {
 	
 	
 	public List<Servicio> listar(){
-		return (List<Servicio>) em.createQuery("select x from Estudiante x").getResultList();	
+		return (List<Servicio>) em.createQuery("select x from Servicio x").getResultList();	
 		
 	}
 	

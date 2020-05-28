@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import Conexion.Conexion;
-import Dto.Cliente;
+
 import Dto.Seguir;
 
 
