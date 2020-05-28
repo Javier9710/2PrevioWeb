@@ -3,6 +3,7 @@ package Dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import Conexion.Conexion;
 import Dto.Cliente;
@@ -54,5 +55,25 @@ public class TiendaDao {
 		 
 		 
 	 }
+	 
+	 public Tienda validar(String email, String pass) {
+			Tienda t = new Tienda();
+			 Query nativeQuery = em.createNativeQuery("SELECT id,nombre FROM Tienda p "
+			 		                                 + "WHERE p.email =? "
+			 		                                 + "and p.clave= ? "
+			 		                                 );
+		        nativeQuery.setParameter(1, email);
+		        nativeQuery.setParameter(2, pass);
+		        Object[] result = (Object[]) nativeQuery.getSingleResult();
+		        t.setId((Integer)(result[0]));
+		        t.setNombre((String) result[1]);
+		        //t.setEdad((Integer) result[1]);
+		        //System.out.println(p.getNombre());
+		        //System.out.println(p.getEdad());
+		       
+		
+			return t;
+		}
+
 	
 }

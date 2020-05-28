@@ -6,22 +6,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import Dao.ServicioDao;
 import Dao.TiendaDao;
+import Dto.Servicio;
 import Dto.Tienda;
 
 /**
- * Servlet implementation class AccesoControl
+ * Servlet implementation class ServicioControl
  */
-@WebServlet("/AccesoControl")
-public class AccesoControl extends HttpServlet {
+@WebServlet("/ServicioControl")
+public class ServicioControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AccesoControl() {
+    public ServicioControl() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,33 +40,29 @@ public class AccesoControl extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession sesion = request.getSession();
-		String accion = request.getParameter("accion");
+		
+String accion= request.getParameter("accion");
+		
 		switch (accion) {
-		case "ingreso":
+		case "registro":
+			String nombre = request.getParameter("nombre");
+			String descripcion = request.getParameter("descripcion");
+
 			
-			String email = request.getParameter("email");
-			String pass = request.getParameter("pass");
-			TiendaDao tD = new TiendaDao();
-			Tienda t = new Tienda();
-			t=tD.validar(email, pass);
-			if (t!=null ) {
-				sesion.setAttribute("tienda", t);
+			ServicioDao tD = new ServicioDao();
+				Servicio t = new Servicio();
+				t.setNombre(nombre);
+				t.setDescripcion(descripcion);
+				tD.registrar(t);
 				request.getRequestDispatcher("/regServicio.jsp").forward(request, response);
 				
-			}else {
 				
-				request.getRequestDispatcher("/login.jsp").forward(request, response);
-				
-				
-			}
-			
-			
 			break;
-
-		default:
-			break;
-		}
 	}
 
-}
+	}
+	
+		
+	}
+
+

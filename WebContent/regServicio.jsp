@@ -4,11 +4,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Nuestra tienda virtual</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" type="text/css" href="css/registro.css">
 </head>
 <body>
 <div class="container-fluid">
@@ -19,23 +19,20 @@
         <div class="container">
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
-              <h3 class="login-heading mb-4">Bienvenido</h3>
-              <form action="AccesoControl" method="post">
+              <h3 class="login-heading mb-4">Registro de Servicio</h3>
+              <form method="post" action="TiendaControl">
                 <div class="form-label-group">
-                  <input type="email" id="inputEmail" name="email"class="form-control" placeholder="Email address" required autofocus>
-                  <label for="inputEmail">Email</label>
+                  <input type="text" id="inputNombre" name="nombre" class="form-control" placeholder="Nombre" required autofocus>
+                  <label for="inputNombre">Nombre</label>
+                </div>
+                <div class="form-label-group">
+                  <input type="text" id="inputLema" name="descripcion" class="form-control" placeholder="Lema" required autofocus>
+                  <label for="inputLema">Descripcion</label>
                 </div>
 
-                <div class="form-label-group">
-                  <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Password" required>
-                  <label for="inputPassword">Password</label>
                 </div>
 
-                <div class="custom-control custom-checkbox mb-3">
-                  <input type="checkbox" class="custom-control-input" id="customCheck1">
-                  <label class="custom-control-label" for="customCheck1">Recordar Password</label>
-                </div>
-                <button value="ingreso" name="accion" class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Ingresar</button>
+                <button value="registro" name="accion" class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Registrar</button>
 
               </form>
             </div>
