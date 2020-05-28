@@ -40,4 +40,19 @@ public class TiendaDao {
 		 
 	 }
 	
+	 public void actualizar (Tienda tienda) {
+		 try {
+			 em.getTransaction().begin();
+			 em.merge(tienda);
+			 em.getTransaction().commit();
+			 } catch (Exception e) {
+			 e.printStackTrace();
+			 }finally {
+			
+			 }
+		
+		 
+		 
+	 }
+	
 }

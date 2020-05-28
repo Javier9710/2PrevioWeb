@@ -5,29 +5,30 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import Conexion.Conexion;
-import Dto.Servicio;
+import Dto.Cliente;
+import Dto.Seguir;
 
 
-public class ServicioDao {
+public class SeguirDao {
 	
 	EntityManager em=null;
 
-	public ServicioDao() {
+	public SeguirDao() {
 		em = Conexion.getEm();
 		// TODO Auto-generated constructor stub
 	}
 	
 	
-	public List<Servicio> listar(){
-		return (List<Servicio>) em.createQuery("select x from Estudiante x").getResultList();	
+	public List<Seguir> listar(){
+		return (List<Seguir>) em.createQuery("select x from Estudiante x").getResultList();	
 		
 	}
 	
 	
-	public void registrar (Servicio servicio) {
+	public void registrar (Seguir seguir) {
 		 try {
 			 em.getTransaction().begin();
-			 em.persist(servicio);
+			 em.persist(seguir);
 			 em.getTransaction().commit();
 			 } catch (Exception e) {
 			 e.printStackTrace();
